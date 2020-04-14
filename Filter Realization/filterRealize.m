@@ -1,6 +1,7 @@
 clear
 clc
 
+% IMPORT DATA
 load maximallyFlatLowPass.txt
 load chebyshev0_5.txt
 load chebyshev3.txt
@@ -27,6 +28,7 @@ whi = 2*pi*fhi;
 wc = 2*pi*fc;
 wo = sqrt(wlo*whi);
 values = zeros(1, 10);
+
 %% VALUES FOR LOW PASS
 % FOR LOW PASS START SERIES L, then SHUNT C, terminated at RL
 if lp == 1 && b == 1% LOW PASS MAXIMALLY FLAT | BUTTERWORTH
@@ -113,7 +115,7 @@ end
 
 %% VALUES FOR BAND PASS
 % FOR BAND PASS START SERIES L + C, then SHUNT L + SHUNT C
-% ROW 1 is INDUCTOR, ROW 2 is CAPACITOR
+% ROW 1 is INDUCTOR, ROW 2 is CAPACITOR, Final Column has RL Value
 valuesbp = zeros(2, 10);
 if bp == 1 && b == 1
     for i = 1:N
